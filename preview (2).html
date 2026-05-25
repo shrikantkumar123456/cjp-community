@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CJP Community</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:
+radial-gradient(circle at top left,#00c6ff22 0%,transparent 30%),
+radial-gradient(circle at top right,#7f5cff22 0%,transparent 30%),
+radial-gradient(circle at bottom left,#00ffb322 0%,transparent 30%),
+linear-gradient(135deg,#050816 0%,#081120 35%,#0b1630 70%,#050816 100%);
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+
+/* GRID EFFECT */
+
+body::before{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:40px 40px;
+pointer-events:none;
+z-index:-2;
+}
+
+/* TOP BAR */
+
+.topbar{
+background:linear-gradient(90deg,#ff6a00,#ff2d55);
+padding:14px;
+text-align:center;
+font-size:14px;
+font-weight:700;
+letter-spacing:.5px;
+}
+
+/* HERO SECTION */
+
+.hero{
+min-height:100vh;
+padding:50px 20px 70px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+/* GLOW EFFECTS */
+
+.hero::before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#00c6ff55 0%,transparent 70%);
+top:-200px;
+left:-150px;
+filter:blur(60px);
+animation:float1 8s ease-in-out infinite;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:450px;
+height:450px;
+background:radial-gradient(circle,#7f5cff55 0%,transparent 70%);
+bottom:-200px;
+right:-150px;
+filter:blur(60px);
+animation:float2 10s ease-in-out infinite;
+}
+
+@keyframes float1{
+0%{transform:translateY(0px);}
+50%{transform:translateY(30px);}
+100%{transform:translateY(0px);}
+}
+
+@keyframes float2{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-25px);}
+100%{transform:translateY(0px);}
+}
+
+/* LOGO */
+
+.logo{
+width:160px;
+height:160px;
+border-radius:50%;
+overflow:hidden;
+margin:auto;
+border:5px solid #00e0ff;
+box-shadow:0 0 40px rgba(0,224,255,.4);
+background:white;
+position:relative;
+z-index:2;
+}
+
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* STATUS */
+
+.status{
+display:inline-flex;
+align-items:center;
+gap:8px;
+margin-top:22px;
+background:rgba(255,255,255,.06);
+padding:12px 20px;
+border-radius:40px;
+border:1px solid rgba(255,255,255,.08);
+font-size:15px;
+backdrop-filter:blur(10px);
+position:relative;
+z-index:2;
+}
+
+.dot{
+width:10px;
+height:10px;
+background:#00ff66;
+border-radius:50%;
+box-shadow:0 0 10px #00ff66;
+}
+
+/* HEADING */
+
+.hero h1{
+font-size:54px;
+line-height:1.2;
+margin-top:35px;
+font-weight:800;
+position:relative;
+z-index:2;
+}
+
+.hero h1 span{
+background:linear-gradient(90deg,#00e0ff,#00ffb3);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:760px;
+margin:25px auto 0;
+line-height:1.9;
+font-size:18px;
+color:#d1d5db;
+position:relative;
+z-index:2;
+}
+
+/* BUTTON */
+
+.join-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+margin-top:38px;
+padding:20px 42px;
+font-size:20px;
+font-weight:700;
+text-decoration:none;
+color:white;
+border-radius:18px;
+background:
+linear-gradient(135deg,#00c6ff,#0072ff,#7f5cff);
+background-size:200% 200%;
+animation:gradientMove 5s ease infinite;
+box-shadow:
+0 10px 35px rgba(0,114,255,.35);
+transition:.3s;
+position:relative;
+overflow:hidden;
+z-index:2;
+}
+
+.join-btn:hover{
+transform:translateY(-5px) scale(1.02);
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* SCROLL TEXT */
+
+.scroll{
+background:#081522;
+padding:14px 0;
+overflow:hidden;
+white-space:nowrap;
+border-top:1px solid rgba(255,255,255,.05);
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.scroll span{
+display:inline-block;
+padding-left:100%;
+animation:scroll 16s linear infinite;
+font-weight:600;
+color:#00e0ff;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+/* SECTION */
+
+.section{
+padding:80px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+font-weight:800;
+margin-bottom:18px;
+}
+
+.section-sub{
+text-align:center;
+max-width:700px;
+margin:auto;
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:55px;
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.08);
+padding:30px;
+border-radius:28px;
+transition:.4s;
+box-shadow:
+0 8px 30px rgba(0,0,0,.25),
+inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#00c6ff88;
+box-shadow:
+0 20px 50px rgba(0,198,255,.15);
+}
+
+.card .icon{
+font-size:42px;
+margin-bottom:18px;
+}
+
+.card h3{
+font-size:24px;
+margin-bottom:14px;
+}
+
+.card p{
+color:#cbd5e1;
+line-height:1.8;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+margin-top:45px;
+}
+
+.stat{
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(15px);
+padding:35px;
+text-align:center;
+border-radius:24px;
+border:1px solid rgba(255,255,255,.06);
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.stat h2{
+font-size:42px;
+color:#00e0ff;
+margin-bottom:10px;
+}
+
+.stat p{
+color:#d1d5db;
+}
+
+/* CTA */
+
+.cta{
+padding:90px 20px;
+text-align:center;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(135deg,
+rgba(0,198,255,.08),
+rgba(127,92,255,.08));
+border-top:1px solid rgba(255,255,255,.06);
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.cta h2{
+font-size:46px;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.cta p{
+max-width:720px;
+margin:auto;
+line-height:1.9;
+color:#d1d5db;
+font-size:18px;
+}
+
+/* FOOTER */
+
+.footer{
+padding:35px 20px;
+text-align:center;
+font-size:14px;
+color:#94a3b8;
+background:#050d18;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-track{
+background:#081120;
+}
+
+::-webkit-scrollbar-thumb{
+background:linear-gradient(#00c6ff,#7f5cff);
+border-radius:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section-title{
+font-size:30px;
+}
+
+.cta h2{
+font-size:32px;
+}
+
+.join-btn{
+width:100%;
+font-size:18px;
+padding:18px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+⚠️ FREE ACCESS JALDI CLOSE HO SAKTA HAI — VIP ENTRY SOON PAID ₹999
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="logo">
+<img src="https://drive.google.com/thumbnail?id=1zWAcr3MFlM7i6mP6HSjaiDTJFElVv08X" alt="logo">
+</div>
+
+<div class="status">
+<div class="dot"></div>
+52,000+ Active Members
+</div>
+
+<h1>
+Online Ka Sabse Active <br>
+<span>CJP Work From Home Network</span>
+</h1>
+
+<p>
+Duniya bhar ke youth ab online earning aur work from home opportunities ke through community join kar rahe hain.
+Neeche diye gaye Telegram button par click karke instantly VIP group join karein aur latest updates paayein.
+</p>
+
+<a class="join-btn"
+href="https://t.me/+6CpHmjSBME04NjE1?fbclid=PAT01DUASBPyZleHRuA2FlbQIxMABzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaepE5cBrAFhyP6UymoXHZ0c7JErCC4n_tSa-fO4LISd86WUxtJjp43ZtMNq0A_aem_5J2O1-kLqNgQlDg5Fc804Q"
+target="_blank">
+
+🚀 JOIN FREE TELEGRAM
+
+</a>
+
+</section>
+
+<!-- SCROLL -->
+
+<div class="scroll">
+<span>
+🔥 Work From Home • Online Earning • Youth Community • Daily Updates • Free Telegram Access • Trending Opportunities 🔥
+</span>
+</div>
+
+<!-- FEATURES -->
+
+<section class="section">
+
+<h2 class="section-title">
+Why People Are Joining?
+</h2>
+
+<p class="section-sub">
+Thousands of users daily community join kar rahe hain aur naye online opportunities explore kar rahe hain.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">💼</div>
+<h3>Work From Home</h3>
+<p>
+Mobile aur internet se online opportunities explore karo aur ghar baithe earning ideas pao.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📈</div>
+<h3>Daily Updates</h3>
+<p>
+Roz naye updates, opportunities aur trending discussions community mein milte hain.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🔥</div>
+<h3>Fast Growing Network</h3>
+<p>
+Youth ka rapidly growing online network jahan log daily active rehte hain.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🎯</div>
+<h3>100% Free Entry</h3>
+<p>
+Abhi ke liye community access bilkul free hai. Baad mein paid ho sakta hai.
+</p>
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<h2>52K+</h2>
+<p>Members Joined</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Community Active</p>
+</div>
+
+<div class="stat">
+<h2>4.9★</h2>
+<p>User Rating</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>Free Access</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>
+Join Before Access Closes
+</h2>
+
+<p>
+Community bahut fast grow kar rahi hai aur free access limited time ke liye available hai.
+Abhi join karein aur VIP Telegram network ka hissa banein.
+</p>
+
+<a class="join-btn"
+href="https://t.me/+6CpHmjSBME04NjE1?fbclid=PAT01DUASBPyZleHRuA2FlbQIxMABzcnRjBmFwcF9pZA81NjE1?fbclid=PAT01DUASBPyZleHRuA2FlbQIxMABzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaepE5cBrAFhyP6UymoXHZ0c7JErCC4n_tSa-fO4LISd86WUxtJjp43ZtMNq0A_aem_5J2O1-kLqNgQlDg5Fc804Q"
+target="_blank">
+
+⚡ JOIN TELEGRAM NOW
+
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+© 2026 CJP Community — Stay Active, Stay Connected.
+</footer>
+
+</body>
+</html>
